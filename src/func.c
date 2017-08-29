@@ -5,54 +5,42 @@
 int check(int take)
 {
 
-	if (take < 10 && take > 0)
-
-	    return 1;
-	else return 0;
+	if (take > 0 && take < 11)
+		return 0;
+	return -1;
 
 }
 
 int move(int numOfRemain)
 {
-    if (1 < numOfRemain && numOfRemain <= 10){
-        return numOfRemain - 1;
-    }
-    if (11 < numOfRemain && numOfRemain <= 20){
-        return numOfRemain - 11;
-    }
-    if (21 < numOfRemain && numOfRemain <= 30){
-        return numOfRemain - 21;
-    }
-    if (31 < numOfRemain && numOfRemain <= 40){
-        return numOfRemain - 21;
-    }
-    if (41 < numOfRemain && numOfRemain <= 50){
-        return numOfRemain - 41;
-    }
-    if (51 < numOfRemain && numOfRemain <= 60){
-        return numOfRemain - 51;
-    }
-    if (61 < numOfRemain && numOfRemain <= 70){
-        return numOfRemain - 61;
-    }
-    if (71 < numOfRemain && numOfRemain <= 80){
-        return numOfRemain - 71;
-    }
-    if (81 < numOfRemain && numOfRemain <= 90){
-        return numOfRemain - 81;
-    }
-    if (91 < numOfRemain && numOfRemain <= 100){
-        return numOfRemain - 91;
-    }
-    if (numOfRemain % 10 == 1){
-        return getrand(1, 10);
-    }
-    return 0;
+	if (numOfRemain < 10){
+		switch(numOfRemain)
+		{
+			case 9:
+				return getrand(1, 9);
+			case 8:
+				return getrand(1, 8);
+			case 7:
+				return getrand(1, 7);
+			case 6:
+				return getrand(1, 6);
+			case 5:
+				return getrand(1, 5);
+			case 4:
+				return getrand(1, 4);
+			case 3:
+				return getrand(1, 3);
+			case 2:
+				return getrand(1, 2);
+			case 1:
+				return 1;
+		}
+	}
+	return getrand(1, 10);
 }
-
 
 int getrand(int min, int max)
 {
     srand(time(NULL));
-    return (double) min + rand() % max;
+    return min + rand() % max;
 }
